@@ -1,0 +1,31 @@
+@import "~rsuite/styles/index";
+@import "~tailwindcss/dist/components.min.css";
+@import "~tailwindcss/dist/utilities.min.css";
+
+@base-color: #A365EF;
+@primary-color: @base-color;
+@border-radius-base: 0px;     // 切换直角/圆角
+@button-ripple: false;
+@form-control-width: 200px;
+.text-primary {
+    color: @base-color;
+}
+.h-screen {
+    height: 100vh;
+}
+.login-bg {
+    background-image: url("../images/floating-cogs.svg");
+    background-repeat: repeat;
+}
+.login-dialog {
+    width: 550px;
+    left: 50%;
+    top: 20%;
+    margin-left: -275px;
+}
+.page-header-navitem.rs-nav-subtle.rs-nav-horizontal .rs-nav-waterline {
+    border-top: 0;
+}
+.rs-nav-item {
+    position: relative;
+}

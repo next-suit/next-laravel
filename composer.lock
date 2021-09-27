@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78bc750aee25015b1bd5af9f18eae116",
+    "content-hash": "b2d45442831d54ef0dd6bf71d96ccae7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2390,6 +2390,76 @@
                 }
             ],
             "time": "2021-08-11T01:06:55+00:00"
+        },
+        {
+            "name": "robthree/twofactorauth",
+            "version": "1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobThree/TwoFactorAuth.git",
+                "reference": "30a38627ae1e7c9399dae67e265063cd6ec5276c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobThree/TwoFactorAuth/zipball/30a38627ae1e7c9399dae67e265063cd6ec5276c",
+                "reference": "30a38627ae1e7c9399dae67e265063cd6ec5276c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "@stable"
+            },
+            "suggest": {
+                "bacon/bacon-qr-code": "Needed for BaconQrCodeProvider provider",
+                "endroid/qr-code": "Needed for EndroidQrCodeProvider"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RobThree\\Auth\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Janssen",
+                    "homepage": "http://robiii.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Two Factor Authentication",
+            "homepage": "https://github.com/RobThree/TwoFactorAuth",
+            "keywords": [
+                "Authentication",
+                "MFA",
+                "Multi Factor Authentication",
+                "Two Factor Authentication",
+                "authenticator",
+                "authy",
+                "php",
+                "tfa"
+            ],
+            "support": {
+                "issues": "https://github.com/RobThree/TwoFactorAuth/issues",
+                "source": "https://github.com/RobThree/TwoFactorAuth"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/robiii",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/RobThree",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-09T18:24:05+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4985,6 +5055,185 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "yansongda/pay",
+            "version": "v2.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/pay.git",
+                "reference": "8c258853b142c6d7589629b047ca5cb21232b509"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yansongda/pay/zipball/8c258853b142c6d7589629b047ca5cb21232b509",
+                "reference": "8c258853b142c6d7589629b047ca5cb21232b509",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-json": "*",
+                "ext-libxml": "*",
+                "ext-openssl": "*",
+                "ext-simplexml": "*",
+                "php": ">=7.1.3",
+                "symfony/event-dispatcher": "^4.0 || ^5.0",
+                "symfony/http-foundation": "^4.0 || ^5.0.7",
+                "yansongda/supports": "^2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "mockery/mockery": "^1.2",
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\Pay\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "专注 Alipay 和 WeChat 的支付扩展包",
+            "keywords": [
+                "alipay",
+                "pay",
+                "wechat"
+            ],
+            "support": {
+                "issues": "https://github.com/yansongda/pay/issues",
+                "source": "https://github.com/yansongda/pay"
+            },
+            "time": "2021-01-18T01:48:43+00:00"
+        },
+        {
+            "name": "yansongda/supports",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yansongda/supports.git",
+                "reference": "de9a8d38b0461ddf9c12f27390dad9a40c9b4e3b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yansongda/supports/zipball/de9a8d38b0461ddf9c12f27390dad9a40c9b4e3b",
+                "reference": "de9a8d38b0461ddf9c12f27390dad9a40c9b4e3b",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2 || ^7.0",
+                "monolog/monolog": "^1.23 || ^2.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "phpunit/phpunit": "^7.5",
+                "predis/predis": "^1.1"
+            },
+            "suggest": {
+                "predis/predis": "Allows to use throttle feature"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Yansongda\\Supports\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yansongda",
+                    "email": "me@yansongda.cn"
+                }
+            ],
+            "description": "common components",
+            "keywords": [
+                "Guzzle",
+                "array",
+                "collection",
+                "config",
+                "http",
+                "support",
+                "throttle"
+            ],
+            "support": {
+                "issues": "https://github.com/yansongda/supports/issues",
+                "source": "https://github.com/yansongda/supports"
+            },
+            "time": "2020-10-14T08:17:18+00:00"
+        },
+        {
+            "name": "yybawang/laravel-ebank",
+            "version": "v1.0.25",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yybawang/laravel-ebank.git",
+                "reference": "962e30419484948862c17ebb96fb4c1dd32ac088"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yybawang/laravel-ebank/zipball/962e30419484948862c17ebb96fb4c1dd32ac088",
+                "reference": "962e30419484948862c17ebb96fb4c1dd32ac088",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "ext-pdo": "*",
+                "php": "^7.2",
+                "yansongda/pay": "^2.9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "yybawang\\ebank\\EbankServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yybawang\\ebank\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yybawang",
+                    "email": "yybawang@gmail.com"
+                }
+            ],
+            "description": "A library for unified payments with online wallets and Alipay and WeChat",
+            "homepage": "https://github.com/yybawang/laravel-ebank",
+            "keywords": [
+                "alipay",
+                "ebank",
+                "online-wallets",
+                "unified-payments",
+                "wallets",
+                "wechat-pay"
+            ],
+            "support": {
+                "issues": "https://github.com/yybawang/laravel-ebank/issues",
+                "source": "https://github.com/yybawang/laravel-ebank/tree/v1.0.25"
+            },
+            "time": "2021-09-12T20:52:49+00:00"
         }
     ],
     "packages-dev": [
@@ -7552,7 +7801,10 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-pcntl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
