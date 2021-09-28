@@ -4,14 +4,20 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 class IndexController extends BaseController
 {
 
-
+    public function dashboard(Request $request){
+        return $this->success([
+            'list' => Admin::paginate(1),
+        ]);
+    }
 
     public function info(Request $request){
         return $this->success([

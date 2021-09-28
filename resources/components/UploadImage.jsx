@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {Modal, Uploader} from "rsuite";
-import {logger, tips} from "../utils/functions";
+import {logger, toast} from "../utils/functions";
 
-export default props => {
+export default React.memo(function UploadImage(props){
     const [show, setShow] = useState(false);
     const [image, setImage] = useState(props.images || '');
 
@@ -32,7 +32,7 @@ export default props => {
                     setImage('');
                 }}
                 onError={() => {
-                    tips('上传失败，网络错误', 'error');
+                    toast('上传失败，网络错误', 'error');
                 }}
                 action={'/upload'}
             >
@@ -54,4 +54,4 @@ export default props => {
         </div>
 
     );
-}
+})

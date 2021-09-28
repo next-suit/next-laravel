@@ -1,4 +1,4 @@
-import {toastError, toastInfo, toastWarning} from "./functions";
+import {date, datetime, toastError, toastInfo, toastWarning} from "./functions";
 import axios from "axios";
 
 let pathname = window.location.pathname.replace(/\//g, '_');
@@ -12,10 +12,24 @@ api.interceptors.request.use(request => {
     let token = localStorage.getItem(`token${pathname}`);
     request.headers['Authorization'] = `Bearer ${token}`;
 
-    request.params = Object.assign({}, request.params || {}, {
+    let params = {
         page: $PAGE,
         rows: $ROWS,
-    })
+    };
+    if(request.params && request.params.dates && request.params.dates instanceof Array && request.params.dates.length === 2){
+        params.dates = [
+            date(request.params.dates[0]),
+            date(request.params.dates[1]) + ' 23:59:59',
+        ];
+    }
+    if(request.params && request.params.date && request.params.date instanceof Date){
+        params.date = date(request.params.date);
+    }
+    if(request.params && request.params.datetime && request.params.datetime instanceof Date){
+        params.datetime = datetime(request.params.datetime);
+    }
+    request.params = Object.assign({}, request.params || {}, params);
+
     return request;
 }, function (error) {
     return Promise.reject(error);

@@ -8,9 +8,9 @@ import {
     Modal,
     Schema
 } from "rsuite"
-import {toastSuccess} from "../../utils/functions"
+import {logger, toastSuccess} from "../../utils/functions"
 
-export default function ChangePassword(props){
+export default React.memo(function ChangePassword(props){
     const [formValues, setFormValues] = useState({
         old: '',
         new: '',
@@ -31,9 +31,9 @@ export default function ChangePassword(props){
         <Modal
             backdrop={true}
             overflow={true}
-            onHide={() => props.setShow(false)}
+            onClose={() => props.onClose()}
             autoFocus
-            show={props.show}
+            open={props.open}
             onEnter={() => focusRef.current.focus()}
         >
             <Form fluid
@@ -53,7 +53,7 @@ export default function ChangePassword(props){
                       setSubmitLoading(true);
                       try {
                           await submit()
-                          props.setShow(false)
+                          props.onClose()
                       }catch (e) {
 
                       }
@@ -78,9 +78,9 @@ export default function ChangePassword(props){
                 </Modal.Body>
                 <Modal.Footer>
                     <Button appearance="primary" type={'submit'} disabled={submitLoading} loading={submitLoading}>提交</Button>
-                    <Button onClick={() => props.setShow(false)} appearance="subtle">取消</Button>
+                    <Button onClick={() => props.onClose()} appearance="subtle">取消</Button>
                 </Modal.Footer>
             </Form>
         </Modal>
     )
-}
+})

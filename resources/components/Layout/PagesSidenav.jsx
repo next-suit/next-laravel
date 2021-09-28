@@ -6,7 +6,6 @@ import Slack from "@rsuite/icons/legacy/Slack";
 import AngleLeft from "@rsuite/icons/legacy/AngleLeft";
 import AngleRight from "@rsuite/icons/legacy/AngleRight";
 import Bars from "@rsuite/icons/legacy/Bars";
-import {logger} from "../../utils/functions";
 
 export default function PagesSidenav(props){
     const [menus, setMenus] = React.useState([]);
@@ -49,8 +48,8 @@ export default function PagesSidenav(props){
             className={'flex flex-col h-screen sticky top-0'}
             collapsible
         >
-            <Sidenav.Header appearance={'inverse'}>
-                <Navbar appearance={"inverse"} className={'w-full overflow-hidden'}>
+            <Sidenav.Header>
+                <Navbar appearance={"inverse"} className={'w-full overflow-hidden'} style={{height: 56}}>
                     <Nav>
                         <Nav.Item as={'span'}><Slack /></Nav.Item>
                         <Nav.Item as={'span'}>{siteName} 总后台管理</Nav.Item>

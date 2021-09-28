@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Switch, Route, useHistory, useLocation, useParams} from 'react-router-dom';
 
-export default function PageFooter(props) {
+export default React.memo(function PageFooter(props) {
     const [list, setList] = React.useState({});
 
     React.useEffect(() => {
@@ -17,4 +17,4 @@ export default function PageFooter(props) {
 
         </div>
     );
-}
+})

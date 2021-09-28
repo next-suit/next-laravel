@@ -16,7 +16,7 @@ export default function Layout(props){
             <Header className={'sticky top-0 z-10'}>
                 <PagesHeader />
             </Header>
-            <Content className={'border-l'}>
+            <Content>
                 <div className={'h-full'}>
                     <Pages />
                 </div>

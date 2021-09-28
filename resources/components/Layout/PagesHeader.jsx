@@ -9,10 +9,10 @@ import SignOut from "@rsuite/icons/legacy/SignOut";
 import UserO from "@rsuite/icons/legacy/UserO";
 import Key from "@rsuite/icons/legacy/Key";
 
-export default function PagesHeader(props){
+export default React.memo(function PagesHeader(props){
     const [user, setUser] = React.useState({});
     const [clearLoading, setClearLoading] = React.useState(false);
-    const [passwordShow, setPasswordShow] = React.useState(false);
+    const [passwordOpen, setPasswordOpen] = React.useState(false);
     const [pathname, setPathname] = React.useState(window.location.pathname.replace(/\//g, '_'));
     const history = useHistory();
 
@@ -36,8 +36,8 @@ export default function PagesHeader(props){
 
     return (
         <div>
-            <Navbar appearance={'inverse'} className={'flex justify-end'}>
-                <Nav>
+            <Navbar appearance={'inverse'}>
+                <Nav pullRight>
                     {/*{location.pathname === '/admin' && <Nav.Item icon={<Icon icon="refresh" spin={clearLoading} />} onClick={() => clear()}>
                         清除缓存
                     </Nav.Item>}*/}
@@ -47,7 +47,7 @@ export default function PagesHeader(props){
                                 <Dropdown.Item
                                     icon={<Envelope />}>{user.email || '未设置邮箱'}</Dropdown.Item>
                                 <Dropdown.Item icon={<Key />}
-                                               onSelect={() => setPasswordShow(true)}>更改密码</Dropdown.Item>
+                                               onSelect={() => setPasswordOpen(true)}>更改密码</Dropdown.Item>
                                 <Divider style={{margin: '0.5rem 0'}}/>
                                 <Dropdown.Item icon={<SignOut />} onSelect={() => {
                                     localStorage.setItem(`auth_jump${pathname}`, location.pathname);
@@ -68,7 +68,7 @@ export default function PagesHeader(props){
                     }
                 </Nav>
             </Navbar>
-            <ChangePassword show={passwordShow} setShow={setPasswordShow} />
+            <ChangePassword open={passwordOpen} onClose={() => setPasswordOpen(false)} />
         </div>
     );
-}
+})
