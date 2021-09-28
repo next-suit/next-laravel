@@ -76,7 +76,6 @@ export default function PagesSidenav(props){
                         {menus.map((item) => (
                             item.children.length > 0 ? <Dropdown
                                 key={item.name}
-                                className={'menu-dropdown'}
                                 eventKey={item.name}
                                 placement="rightStart"
                                 title={<div className={'truncate'}>{item.name}</div>}
@@ -87,7 +86,6 @@ export default function PagesSidenav(props){
                                     <Dropdown.Item
                                         key={sub.url}
                                         eventKey={sub.url}
-                                        name={sub.name}
                                     >{sub.name}</Dropdown.Item>
                                 ))}
                             </Dropdown>
@@ -110,7 +108,7 @@ const NavToggle = ({ expanded, onChange }) => {
         textAlign: 'center'
     };
     return (
-        <Navbar appearance="default" className="nav-toggle">
+        <Navbar appearance="default">
             <Nav pullRight>
                 <Nav.Item onClick={onChange} style={{ width: 56, textAlign: 'center' }}>
                     {expanded ? <AngleLeft /> : <AngleRight />}
