@@ -1,20 +1,21 @@
 import React from "react";
-import {Table} from "rsuite";
+import {Panel, Table} from "rsuite";
 import TablePagination from "./TablePagination";
 
-export default function TableLayout({data, children, onChange, ...props}){
+export default function TableLayout({loading, data, children, onChange, ...props}){
 
-    return <React.Fragment>
+    return <Panel bodyFill={true}>
         <Table
             affixHeader
             bordered
             autoHeight
             wordWrap
+            loading={loading}
             data={data.data}
             {...props}
         >
             {children}
         </Table>
         <TablePagination {...data} onChange={(page, rows) => onChange(page, rows)} />
-    </React.Fragment>
+    </Panel>
 }

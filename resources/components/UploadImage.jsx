@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {Modal, Uploader} from "rsuite";
 import {logger, toast} from "../utils/functions";
 
-export default React.memo(function UploadImage(props){
+const UploadImage = (props) =>{
     const [show, setShow] = useState(false);
     const [image, setImage] = useState(props.images || '');
 
@@ -54,4 +54,6 @@ export default React.memo(function UploadImage(props){
         </div>
 
     );
-})
+}
+
+export default UploadImage;

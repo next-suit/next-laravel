@@ -5,7 +5,7 @@ import {Table} from "rsuite";
  * 仅限 Table column 使用
  * 0/1 的 status 状态文字显示
  */
-export default React.memo(function TableCellEnDis({ rowData, dataKey, ...props }){
+const TableCellEnDis = ({ rowData, dataKey, ...props }) => {
     return (
         <Table.Cell {...props}>
             {rowData[dataKey] ?
@@ -15,4 +15,5 @@ export default React.memo(function TableCellEnDis({ rowData, dataKey, ...props }
             }
         </Table.Cell>
     );
-})
+}
+export default TableCellEnDis

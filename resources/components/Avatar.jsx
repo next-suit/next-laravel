@@ -1,7 +1,7 @@
 import React from 'react';
 import {Avatar, Button, Modal} from "rsuite";
 
-export default React.memo(function Avatar(props){
+const Avatar = (props) => {
     const [show ,setShow] = React.useState(false);
 
     return (
@@ -25,4 +25,6 @@ export default React.memo(function Avatar(props){
             </Modal>
         </div>
     );
-})
+}
+
+export default Avatar;

@@ -9,7 +9,7 @@ import SignOut from "@rsuite/icons/legacy/SignOut";
 import UserO from "@rsuite/icons/legacy/UserO";
 import Key from "@rsuite/icons/legacy/Key";
 
-export default React.memo(function PagesHeader(props){
+const PagesHeader = (props) => {
     const [user, setUser] = React.useState({});
     const [clearLoading, setClearLoading] = React.useState(false);
     const [passwordOpen, setPasswordOpen] = React.useState(false);
@@ -71,4 +71,6 @@ export default React.memo(function PagesHeader(props){
             <ChangePassword open={passwordOpen} onClose={() => setPasswordOpen(false)} />
         </div>
     );
-})
+}
+
+export default PagesHeader;

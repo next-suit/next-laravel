@@ -10,7 +10,7 @@ import {
 } from "rsuite"
 import {logger, toastSuccess} from "../../utils/functions"
 
-export default React.memo(function ChangePassword(props){
+const ChangePassword = (props) => {
     const [formValues, setFormValues] = useState({
         old: '',
         new: '',
@@ -83,4 +83,6 @@ export default React.memo(function ChangePassword(props){
             </Form>
         </Modal>
     )
-})
+}
+
+export default ChangePassword;

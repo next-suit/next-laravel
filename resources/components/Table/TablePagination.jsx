@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Pagination} from "rsuite"
 
-export default function TablePagination(props) {
+const TablePagination = (props) => {
     const [page, setPage] = useState(1);
     const [rows, setRows] = useState(15);
 
@@ -42,3 +42,5 @@ export default function TablePagination(props) {
         />
     )
 }
+
+export default React.memo(TablePagination);
