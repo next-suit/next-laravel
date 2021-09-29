@@ -1,4 +1,6 @@
 <?php
+namespace App\Http\COntrollers\Api;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,12 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register', [LoginController::class, 'register']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::get('/', function(Request $request){
-    $request->validate([
-        'sss'=> 'required',
-    ]);
 });
