@@ -63,4 +63,4 @@ const UploadImages = (props) => {
     );
 };
 
-export default React.memo(UploadImages)
+export default UploadImages

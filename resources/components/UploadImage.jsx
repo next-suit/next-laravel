@@ -12,7 +12,7 @@ const UploadImage = (props) =>{
     }, [props.value]);
 
     React.useEffect(() => {
-        fileList.length > 0 && props.onChange(fileList[0].url);
+        fileList[0] && fileList[0].url && props.onChange(fileList[0].url);
     }, [fileList]);
 
 
@@ -41,8 +41,8 @@ const UploadImage = (props) =>{
                 }}
                 action={'/upload'}
             >
-                <button type={'button'} style={{minHeight:  100, width: props.width || 100, height: props.height || 'auto'}}>
-                    {fileList.length > 0 ? <img src={fileList[0].url} width="100%" height="100%" alt={""}/> : <Upload />}
+                <button type={'button'} style={{minHeight:  100, width: props.width || 100, height: props.height || 100}}>
+                    {fileList[0] && fileList[0].url ? <img src={fileList[0].url} alt={"Image"} className={'object-cover w-full h-full'} /> : <Upload />}
                 </button>
             </Uploader>
             <Modal
@@ -61,4 +61,4 @@ const UploadImage = (props) =>{
     );
 };
 
-export default React.memo(UploadImage);
+export default UploadImage;
