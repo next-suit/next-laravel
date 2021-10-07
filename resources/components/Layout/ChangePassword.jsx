@@ -83,6 +83,6 @@ const ChangePassword = (props) => {
             </Form>
         </Modal>
     )
-}
+};
 
-export default ChangePassword;
+export default React.memo(ChangePassword);

@@ -52,7 +52,7 @@ export default function PagesSidenav(props){
                 <Navbar appearance={"inverse"} className={'w-full overflow-hidden'} style={{height: 56}}>
                     <Nav>
                         <Nav.Item as={'span'}><Slack /></Nav.Item>
-                        <Nav.Item as={'span'}>{siteName} 总后台管理</Nav.Item>
+                        <Nav.Item as={'span'}>{siteName} 后台管理</Nav.Item>
                     </Nav>
                 </Navbar>
             </Sidenav.Header>

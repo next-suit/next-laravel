@@ -15,6 +15,6 @@ const TableCellOnOff = ({ rowData, dataKey, ...props }) => {
             }
         </Table.Cell>
     );
-}
+};
 
-export default TableCellOnOff
+export default React.memo(TableCellOnOff)

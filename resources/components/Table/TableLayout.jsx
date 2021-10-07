@@ -2,7 +2,7 @@ import React from "react";
 import {Panel, Table} from "rsuite";
 import TablePagination from "./TablePagination";
 
-export default function TableLayout({loading, data, children, onChange, ...props}){
+const TableLayout = ({loading, data, children, onChange, ...props}) => {
 
     return <Panel bodyFill={true}>
         <Table
@@ -18,4 +18,6 @@ export default function TableLayout({loading, data, children, onChange, ...props
         </Table>
         <TablePagination {...data} onChange={(page, rows) => onChange(page, rows)} />
     </Panel>
-}
+};
+
+export default React.memo(TableLayout)

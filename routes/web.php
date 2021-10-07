@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/upload', [App\Http\Controllers\Controller::class, 'upload']);
+
 Route::get('/sandbox/test', [\App\Http\Controllers\SandboxController::class, 'test']);

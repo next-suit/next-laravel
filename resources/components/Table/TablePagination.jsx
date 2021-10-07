@@ -41,6 +41,6 @@ const TablePagination = (props) => {
             }}
         />
     )
-}
+};
 
 export default React.memo(TablePagination);

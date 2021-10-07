@@ -17,6 +17,6 @@ const TableConformButton = ({description, onConfirm, color, placement, ...props}
     >
         <Button appearance={"primary"} color={color}>{props.children}</Button>
     </Whisper>
-}
+};
 
 export default React.memo(TableConformButton)

@@ -1,14 +1,19 @@
-import React, {useEffect, useState, useRef, useCallback} from 'react';
+import React from 'react';
 import {Modal, Uploader} from "rsuite";
 import {logger, toast} from "../utils/functions";
+import Upload from "@rsuite/icons/legacy/Upload";
 
 const UploadImage = (props) =>{
-    const [show, setShow] = useState(false);
-    const [image, setImage] = useState(props.images || '');
+    const [show, setShow] = React.useState(false);
+    const [fileList, setFileList] = React.useState([]);
 
     React.useMemo(() => {
-        props.onChange(image);
-    }, [image]);
+        setFileList([{id:1, fileKey: 1, url: props.value}]);
+    }, [props.value]);
+
+    React.useEffect(() => {
+        fileList.length > 0 && props.onChange(fileList[0].url);
+    }, [fileList]);
 
 
     return (
@@ -18,7 +23,7 @@ const UploadImage = (props) =>{
                 accept={'image/*'}
                 fileListVisible={false}
                 listType="picture"
-                defaultFileList={[{id: 1, url: image, fileKey: 1}]}
+                fileList={fileList}
                 onPreview={(file, e) => {
                     if (file.url) {
                         setShow(true);
@@ -26,10 +31,10 @@ const UploadImage = (props) =>{
                 }}
                 onSuccess={(res, file) => {
                     file.url = res.image;
-                    setImage(res.image);
+                    setFileList([file]);
                 }}
                 onRemove={(file) => {
-                    setImage('');
+                    setFileList([]);
                 }}
                 onError={() => {
                     toast('上传失败，网络错误', 'error');
@@ -37,23 +42,23 @@ const UploadImage = (props) =>{
                 action={'/upload'}
             >
                 <button type={'button'} style={{minHeight:  100, width: props.width || 100, height: props.height || 'auto'}}>
-                    {props.value ? <img src={props.value} width="100%" height="100%" alt={""}/> : '上传'}
+                    {fileList.length > 0 ? <img src={fileList[0].url} width="100%" height="100%" alt={""}/> : <Upload />}
                 </button>
             </Uploader>
             <Modal
                 backdrop={true}
                 overflow={false}
-                show={show}
-                onHide={() => setShow(false)}
+                open={show}
+                onClose={() => setShow(false)}
             >
                 <Modal.Header><Modal.Title>预览</Modal.Title></Modal.Header>
                 <Modal.Body>
-                    <img src={image} width={'100%'} alt={""}/>
+                    <img src={fileList[0] && fileList[0].url} width={'100%'} alt={""}/>
                 </Modal.Body>
             </Modal>
         </div>
 
     );
-}
+};
 
-export default UploadImage;
+export default React.memo(UploadImage);

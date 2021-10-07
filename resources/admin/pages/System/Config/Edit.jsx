@@ -13,11 +13,11 @@ import api from "../../../../utils/api";
 import {date, datetime, logger} from "../../../../utils/functions";
 
 export default function Edit(props){
-    const [submitLoading, setSubmitLoading] = React.useState(false)
-    const [formValues, setFormValues] = React.useState({key: '', type: '', value: '', tips: ''})
+    const [submitLoading, setSubmitLoading] = React.useState(false);
+    const [formValues, setFormValues] = React.useState({key: '', type: '', value: '', tips: ''});
     const [types, setTypes] = React.useState([]);
-    const formRef = React.useRef(null)
-    const focusRef = React.useRef(null)
+    const formRef = React.useRef(null);
+    const focusRef = React.useRef(null);
     const history = useHistory();
     const params = useParams();
 
@@ -27,7 +27,7 @@ export default function Edit(props){
     }, []);
 
     async function init() {
-        let res = await api.get('/system/config/' + params.id)
+        let res = await api.get('/system/config/' + params.id);
         let data = res.data || {};
         if(data.type === 'date' || data.type === 'datetime'){
             data.value = new Date(data.value);
@@ -68,9 +68,9 @@ export default function Edit(props){
                       if (!formRef.current.check()) {
                           return false
                       }
-                      setSubmitLoading(true)
+                      setSubmitLoading(true);
                       try {
-                          await submit()
+                          await submit();
                           history.goBack();
                       } catch (e) {
 

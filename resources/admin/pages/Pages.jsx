@@ -1,7 +1,7 @@
 import React from "react";
 import {Route, Redirect, Switch} from "react-router-dom";
 
-const Index = React.lazy(() => import("./Index/Index"));
+const Index = React.lazy(() => import("./Index"));
 const Permission = React.lazy(() => import("./Permission/Permission"));
 const System = React.lazy(() => import("./System/System"));
 

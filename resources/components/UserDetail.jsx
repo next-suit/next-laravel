@@ -3,7 +3,7 @@ import {useHistory} from 'react-router-dom';
 import api from "../utils/api";
 import {Avatar, Modal, List, Badge, Button} from "rsuite";
 
-export default React.memo(function UserDetail(props){
+const UserDetail = (props) => {
     const [user, setUser] = useState({info: {}});
     const [loading, setLoading] = useState(false);
     const history = useHistory();
@@ -63,4 +63,6 @@ export default React.memo(function UserDetail(props){
             </Modal.Body>
         </Modal>
     );
-})
+};
+
+export default React.memo(UserDetail);

@@ -15,5 +15,6 @@ const TableCellEnDis = ({ rowData, dataKey, ...props }) => {
             }
         </Table.Cell>
     );
-}
-export default TableCellEnDis
+};
+
+export default React.memo(TableCellEnDis)

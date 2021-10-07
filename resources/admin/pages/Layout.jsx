@@ -7,7 +7,6 @@ import Pages from "./Pages";
 
 
 export default function Layout(props){
-    const [activeUrl, setActiveUrl] = React.useState('/index/dashboard');
     const [expanded, setExpanded] = React.useState(true);
 
     return <Container>

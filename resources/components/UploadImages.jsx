@@ -5,11 +5,13 @@ import {toast} from "../utils/functions";
 const UploadImages = (props) => {
     const [show, setShow] = useState(false);
     const [preview, setPreview] = useState({});
-    const [images, setImages] = useState(props.value || []);
+    const [images, setImages] = useState([]);
 
-    useEffect(() => {
-        props.onChange(images);
-    }, [images]);
+    React.useMemo(() => {
+        if(props.value){
+            setImages(props.value.map(image => {return {id: image, url: image, fileKey: image}}));
+        }
+    }, [props.value]);
 
 
     return (
@@ -19,7 +21,7 @@ const UploadImages = (props) => {
                 accept={'image/*'}
                 multiple
                 listType={'picture'}
-                fileList={props.value && props.value.map(image => {return {id: image, url: image, fileKey: image}})}
+                fileList={images}
                 onPreview={(file, e) => {
                     if (file.url) {
                         setPreview(file);
@@ -27,17 +29,18 @@ const UploadImages = (props) => {
                     }
                 }}
                 onSuccess={(res, file) => {
-                    file.id = 0;
-                    file.url = res.image;
+                    const file2 = {id: res.image, url: res.image, fileKey: res.image};
                     let images2 = [...images];
-                    images2.push(file);
+                    images2.push(file2);
                     setImages(images2);
+                    props.onChange(images2.map(image => image.url));
                 }}
                 onRemove={(file) => {
                     let images2 = [...images];
                     let index = images2.findIndex(item => item.url === file.url);
                     images2.splice(index, 1);
                     setImages(images2);
+                    props.onChange(images2.map(image => image.url));
                 }}
                 onError={() => {
                     toast('上传失败，网络错误', 'error');
@@ -47,8 +50,8 @@ const UploadImages = (props) => {
             <Modal
                 backdrop={true}
                 overflow={false}
-                show={show}
-                onHide={() => setShow(false)}
+                open={show}
+                onClose={() => setShow(false)}
             >
                 <Modal.Header><Modal.Title>预览</Modal.Title></Modal.Header>
                 <Modal.Body>
@@ -58,6 +61,6 @@ const UploadImages = (props) => {
         </div>
 
     );
-}
+};
 
-export default UploadImages
+export default React.memo(UploadImages)

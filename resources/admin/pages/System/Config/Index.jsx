@@ -18,19 +18,19 @@ import TableConformButton from "../../../../components/Table/TableConformButton"
 import {Plus, Search} from "@rsuite/icons";
 
 export default function Index(props){
-    const [list, setList] = React.useState({})
-    const [loading, setLoading] = React.useState(false)
-    const [filterValues, setFilterValues] = React.useState({key: ''})
+    const [list, setList] = React.useState({});
+    const [loading, setLoading] = React.useState(false);
+    const [filterValues, setFilterValues] = React.useState({key: ''});
     const history  = useHistory();
 
     React.useEffect(() => {
         init()
-    }, [])
+    }, []);
 
     async function init() {
-        setLoading(true)
-        let res = await api.get('/system/config', {params: filterValues})
-        setList(res)
+        setLoading(true);
+        let res = await api.get('/system/config', {params: filterValues});
+        setList(res);
         setLoading(false)
     }
 
@@ -39,8 +39,8 @@ export default function Index(props){
     }
 
     async function del(id) {
-        let res = await api.delete('/system/config/' + id)
-        toast('删除完成', 'success')
+        let res = await api.delete('/system/config/' + id);
+        toast('删除完成', 'success');
         await init();
     }
 

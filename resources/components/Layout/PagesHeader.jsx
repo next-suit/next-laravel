@@ -71,6 +71,6 @@ const PagesHeader = (props) => {
             <ChangePassword open={passwordOpen} onClose={() => setPasswordOpen(false)} />
         </div>
     );
-}
+};
 
-export default PagesHeader;
+export default React.memo(PagesHeader);
