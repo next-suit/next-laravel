@@ -25,8 +25,8 @@ export default props => {
         try {
             let res = await api.post('/login', formValue);
             localStorage.setItem(`token${pathname}`, res.token);
-            let jump = localStorage.getItem(`auth_jump${pathname}`);
-            if(jump === '/login'){
+            let jump = localStorage.getItem(`auth_jump${pathname}`) || '/';
+            if(jump === '/login' || jump === '/admin'){
                 jump = '/';
             }
             history.push(jump);
@@ -69,9 +69,9 @@ export default props => {
                         </Form>
                     </Panel>
                     </div>
-                    <div className={'absolute bottom-20 -right-8 transform -rotate-45 card-1'} />
+                    <div className={'absolute bottom-20 -right-8 transform rotate-6 card-1'} />
                     <div className={'absolute -bottom-10 right-40 transform rotate-45 card-2'} />
-                    <div className={'absolute -top-32 right-96 transform rotate-12 card-3'} />
+                    <div className={'absolute -top-16 left-80 transform -rotate-12 card-3'} />
                     <div className={'absolute top-10 -right-10 transform rotate-12 card-4'} />
                 </div>
             </div>
