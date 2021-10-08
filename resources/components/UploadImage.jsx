@@ -3,21 +3,17 @@ import {Modal, Uploader} from "rsuite";
 import {logger, toast} from "../utils/functions";
 import Upload from "@rsuite/icons/legacy/Upload";
 
-const UploadImage = (props) =>{
+const UploadImage = ({value, onChange, ...props}) =>{
     const [show, setShow] = React.useState(false);
     const [fileList, setFileList] = React.useState([]);
 
     React.useMemo(() => {
-        setFileList([{id:1, fileKey: 1, url: props.value}]);
-    }, [props.value]);
-
-    React.useEffect(() => {
-        fileList[0] && fileList[0].url && props.onChange(fileList[0].url);
-    }, [fileList]);
+        setFileList([{id:1, fileKey: 1, url: value}]);
+    }, [value]);
 
 
     return (
-        <div className={'mb-2'}>
+        <div>
             <Uploader
                 name={'image'}
                 accept={'image/*'}
@@ -32,9 +28,11 @@ const UploadImage = (props) =>{
                 onSuccess={(res, file) => {
                     file.url = res.image;
                     setFileList([file]);
+                    onChange(res.image);
                 }}
                 onRemove={(file) => {
                     setFileList([]);
+                    onChange('');
                 }}
                 onError={() => {
                     toast('上传失败，网络错误', 'error');
@@ -61,4 +59,4 @@ const UploadImage = (props) =>{
     );
 };
 
-export default UploadImage;
+export default React.memo(UploadImage)

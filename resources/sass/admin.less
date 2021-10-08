@@ -11,15 +11,38 @@
     color: @base-color;
 }
 .login-bg {
-    background-image: url("../images/floating-cogs.svg");
-    background-repeat: repeat;
+    background: url("../images/floating-cogs.svg") repeat #8DD8EC;
 }
 .login-dialog {
-    width: 550px;
+    width: 60rem;
+    height: 35rem;
     left: 50%;
     top: 20%;
-    margin-left: -275px;
+    margin-left: -30rem;
+    background-image: url("../images/Chicago+Skyline.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .card-1 {
+        border-bottom: 100px solid #5A4EF2;
+        border-right: 60px solid transparent;
+    }
+    .card-2 {
+        border-bottom: 160px solid #EC7AF5;
+        border-left: 80px solid transparent;
+    }
+    .card-3 {
+        border-top: 200px solid #F8D649;
+        border-left: 60px solid transparent;
+    }
+    .card-4 {
+        border-right: 100px solid #EF7A64;
+        border-bottom: 60px solid transparent;
+    }
 }
 .rs-btn > svg {
     margin-top: -2px;
+}
+.rs-uploader-file-item-preview {
+    cursor: pointer;
 }
