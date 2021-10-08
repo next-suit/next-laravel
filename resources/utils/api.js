@@ -46,8 +46,8 @@ api.interceptors.response.use(response => {
     if(errors.response.status === 401){
         // 不是未登录错误，就提示出来
         errors.response.data.message === 'Unauthenticated.' || toastInfo(errors.response.data.message);
-        localStorage.setItem(`auth_jump${pathname}`, location.hash.substr(1));
-        window.top.location.href = '#/login';
+        localStorage.setItem(`auth_jump${pathname}`, window.location.hash.substr(1));
+        window.location.href = '#/login';
         return Promise.reject(errors.response.data.message);
     }
     if(errors.response.status === 422){
