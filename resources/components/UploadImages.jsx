@@ -1,6 +1,7 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {Modal, Uploader} from "rsuite";
 import {toast} from "../utils/functions";
+import Upload from "@rsuite/icons/legacy/Upload";
 
 const UploadImages = ({value, onChange, ...props}) => {
     const [show, setShow] = useState(false);
@@ -46,7 +47,11 @@ const UploadImages = ({value, onChange, ...props}) => {
                     toast('上传失败，网络错误', 'error');
                 }}
                 action={'/upload'}
-            />
+            >
+                <button type={'button'}>
+                    <Upload />
+                </button>
+            </Uploader>
             <Modal
                 backdrop={true}
                 overflow={false}

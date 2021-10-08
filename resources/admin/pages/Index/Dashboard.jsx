@@ -30,7 +30,7 @@ export default function Dashboard(props) {
         <div><DatePicker value={date} onChange={setDate}/></div>
         <div><Button onClick={submit}>Submit</Button></div>
         <div>
-            <Form layout={"vertical"} formValue={filterValue} onChange={(value) => {
+            <Form layout={"inline"} formValue={filterValue} onChange={(value) => {
                 setFilterValue(value);
                 logger(value);
             }}>

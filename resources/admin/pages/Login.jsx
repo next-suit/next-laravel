@@ -42,7 +42,7 @@ export default props => {
                 <div className={'flex h-full relative'}>
                     <div className={'w-3/5 h-full'} />
                     <div className={'w-2/5 h-full'}>
-                        <Panel className={'h-full pt-8 backdrop-filter backdrop-blur-xl backdrop-saturate-150'} header={<h4><span className={'text-primary text-xl'}>｜</span> 操作员登录 :)</h4>}>
+                        <Panel className={'h-full pt-8 backdrop-filter backdrop-blur-xl backdrop-saturate-150'} header={<h4 className={'border-l-4 border-0 border-solid border-l-primary pl-2 text-gray-700'}>操作员登录 :)</h4>}>
                         <Form
                             fluid
                             formValue={formValue}
