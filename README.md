@@ -12,7 +12,11 @@ yarn || npm i
 
 // 拷贝配置文件并修改数据库连接信息以及其它配置
 cp .env.example .env
+
+// 初始化操作
 php artisan key:generate
+php artisan storage:link
+php artisan ebank:purse-init
 
 // 运行数据库迁移并生成默认登录用户
 php artisan migrate --seed
