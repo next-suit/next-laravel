@@ -3,7 +3,8 @@ import {Button, DatePicker, DateRangePicker, Table, Form, Input} from "rsuite";
 import {logger} from "../../../utils/functions";
 import api from "../../../utils/api";
 import TableLayout from "../../../components/Table/TableLayout";
-import {Plus, Search} from "@rsuite/icons";
+import Plus from "@rsuite/icons/Plus";
+import Search from "@rsuite/icons/Search";
 import Avatar from "../../../components/Avatar";
 import UploadImage from "../../../components/UploadImage";
 import UploadImages from "../../../components/UploadImages";
@@ -66,7 +67,7 @@ export default function Dashboard(props) {
         </Form>
         <div>
             <TableLayout data={list} onChange={() => submit()}>
-                <Table.Column><Table.HeaderCell>手动方式</Table.HeaderCell><Table.Cell dataKey={'id'}/></Table.Column>
+                <Table.Column verticalAlign={"middle"}><Table.HeaderCell>ROW1</Table.HeaderCell><Table.Cell dataKey={'id'}/></Table.Column>
             </TableLayout>
         </div>
     </div>;

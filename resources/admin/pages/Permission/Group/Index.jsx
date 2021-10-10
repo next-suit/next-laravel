@@ -15,7 +15,8 @@ import {
 import api from "../../../../utils/api"
 import {datetime, toast} from "../../../../utils/functions"
 import TableCellEnDis from "../../../../components/Table/TableCellEnDis";
-import {Plus, Search} from "@rsuite/icons";
+import Plus from "@rsuite/icons/Plus";
+import Search from "@rsuite/icons/Search";
 import TableLayout from "../../../../components/Table/TableLayout";
 import TableConformButton from "../../../../components/Table/TableConformButton";
 
@@ -72,16 +73,16 @@ export default function Index(props){
                 <Button appearance={'primary'} onClick={() => edit(0)}><Plus /> 添加</Button>
             </Form>
             <TableLayout loading={loading} data={list} onChange={() => init()}>
-                <Table.Column width={60}><Table.HeaderCell>ID</Table.HeaderCell><Table.Cell dataKey={'id'}/></Table.Column>
-                <Table.Column flexGrow={1}><Table.HeaderCell>分组名</Table.HeaderCell><Table.Cell dataKey={'name'}/></Table.Column>
-                <Table.Column flexGrow={1}><Table.HeaderCell>添加时间</Table.HeaderCell><Table.Cell>
+                <Table.Column width={60} verticalAlign={"middle"}><Table.HeaderCell>ID</Table.HeaderCell><Table.Cell dataKey={'id'}/></Table.Column>
+                <Table.Column flexGrow={1} verticalAlign={"middle"}><Table.HeaderCell>分组名</Table.HeaderCell><Table.Cell dataKey={'name'}/></Table.Column>
+                <Table.Column flexGrow={1} verticalAlign={"middle"}><Table.HeaderCell>添加时间</Table.HeaderCell><Table.Cell>
                     {row => datetime(row.created_at)}
                 </Table.Cell></Table.Column>
 
-                <Table.Column width={100}><Table.HeaderCell>状态</Table.HeaderCell>
+                <Table.Column width={100} verticalAlign={"middle"}><Table.HeaderCell>状态</Table.HeaderCell>
                     <TableCellEnDis dataKey={'status'} />
                 </Table.Column>
-                <Table.Column width={100}><Table.HeaderCell>操作</Table.HeaderCell>
+                <Table.Column width={100} verticalAlign={"middle"}><Table.HeaderCell>操作</Table.HeaderCell>
                     <Table.Cell>
                         {row => row.id > 1 && <ButtonGroup size={'xs'}>
                             <Button appearance={'primary'} onClick={() => edit(row.id)}>编辑</Button>

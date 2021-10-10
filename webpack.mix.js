@@ -23,5 +23,5 @@ if (mix.inProduction()) {
 } else {
     mix.sourceMaps()
 }
-
+mix.extract();
 mix.disableNotifications();

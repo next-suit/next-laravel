@@ -4,13 +4,14 @@ import TablePagination from "./TablePagination";
 
 const TableLayout = ({loading, data, children, onChange, ...props}) => {
 
-    return <Panel bodyFill={true}>
+    return <Panel bodyFill={true} bordered={false}>
         <Table
             affixHeader
             bordered
+            virtualized
             autoHeight
             wordWrap
-            loading={loading}
+            loading={!!loading}
             data={data.data}
             {...props}
         >
