@@ -5126,10 +5126,10 @@ rsuite-table@^5.0.0:
     element-resize-event "^3.0.6"
     lodash "^4.17.21"
 
-rsuite@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/rsuite/-/rsuite-5.0.0.tgz#21f5521a7ea725b5e1c58c0f9ea64d2dfd57aa49"
-  integrity sha512-2vEr9dEMzHKn3eP3TumQjUiHdEIhrCpjk/uf2FdyO6dSUZ3qKgwDJq5ZyUKh4cdniVOGav0NTSbn9Xkrq2dT7A==
+rsuite@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/rsuite/-/rsuite-5.0.1.tgz#b46e06a266b52efb615d393417db241e88bf42e9"
+  integrity sha512-G8BrL9yI+IC/PvrLpdsDz5gkY04YxrHVVXpTeco90EH2jCwSOGZH99EHQrYxw9IF+S7V7wNAUsNrigoSD4ynhA==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@rsuite/icons" "^1.0.0"

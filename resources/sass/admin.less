@@ -1,8 +1,8 @@
 @import "~rsuite/styles/index";
-@import "~tailwindcss/dist/components.min.css";
 @import "~tailwindcss/dist/utilities.min.css";
+@import "~tailwindcss/dist/components.min.css";
 
-//@base-color: #4EB3F8;
+@base-color: #9178C5;
 @primary-color: @base-color;
 @border-radius-base: 0px;     // 切换直角/圆角
 @button-ripple: false;
@@ -14,7 +14,7 @@
     border-left-color: @base-color;
 }
 .login-bg {
-    background: url("../images/floating-cogs.svg") repeat #8DD8EC;
+    background: url("../images/floating-cogs.svg") repeat @base-color;
 }
 .login-dialog {
     width: 60rem;
@@ -27,8 +27,10 @@
     background-repeat: no-repeat;
     background-position: center;
     .card-1 {
-        border-top: 100px solid #5A4EF2;
-        border-right: 60px solid transparent;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: #5A4EF2;
     }
     .card-2 {
         border-bottom: 160px solid #EC7AF5;

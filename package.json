@@ -30,6 +30,6 @@
     "dependencies": {
         "dayjs": "^1.10.7",
         "md5": "^2.3.0",
-        "rsuite": "^5.0.0"
+        "rsuite": "^5.0.1"
     }
 }

@@ -6,11 +6,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    protected $appends = ['mobile_hide'];
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +23,10 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'mobile',
+        'avatar',
         'password',
+        'status',
     ];
 
     /**
@@ -29,8 +35,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'mobile',
         'password',
-        'remember_token',
     ];
 
     /**
@@ -41,4 +47,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * 隐藏手机号
+     * @return string
+     */
+    public function getMobileHideAttribute(){
+        $left = Str::substr($this->getAttribute('mobile'), 0, 4);
+        $right = Str::substr($this->getAttribute('mobile'), 8);
+        return $left.'****'.$right;
+    }
 }

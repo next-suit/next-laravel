@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {Switch, Route, useHistory, useLocation, useParams} from 'react-router-dom';
 import api from "../../../../utils/api";
 import {
@@ -69,7 +69,7 @@ export default function Edit(props){
                     <Form.ControlLabel>权限菜单</Form.ControlLabel>
                     <div className={'border-l-4'}>
                         {menus.map(parent =>
-                            <div key={parent.name} className={'pl-2'}>
+                            parent.children.length > 0 ? <div key={parent.name} className={'pl-2'}>
                                 <h6>{parent.name}</h6>
                                 <div className={'pl-4'}>
                                     <Form.Control accepter={CheckboxGroup} name={'menus'} inline>
@@ -78,6 +78,8 @@ export default function Edit(props){
                                         )}
                                     </Form.Control>
                                 </div>
+                            </div>: <div>
+                                <Checkbox key={parent.url} value={parent.url}>{parent.name}</Checkbox>
                             </div>
                         )}
 
