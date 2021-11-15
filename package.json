@@ -17,7 +17,6 @@
         "laravel-mix": "^6.0.6",
         "less": "^4.1.1",
         "less-loader": "^10.0.1",
-        "postcss": "^8.1.14",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-refresh": "^0.10.0",
@@ -25,11 +24,13 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1",
-        "tailwindcss": "^2.2.16"
+        "tailwindcss": "^2.2.19"
     },
     "dependencies": {
+        "@ant-design/charts": "^1.2.14",
         "dayjs": "^1.10.7",
         "md5": "^2.3.0",
-        "rsuite": "^5.0.1"
+        "react-copy-to-clipboard": "^5.0.4",
+        "rsuite": "5.2.0"
     }
 }

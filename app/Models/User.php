@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,6 +28,7 @@ class User extends Authenticatable
         'avatar',
         'password',
         'status',
+        'remarks',
     ];
 
     /**
@@ -36,6 +38,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'mobile',
+        'remarks',
         'password',
     ];
 
@@ -56,5 +59,14 @@ class User extends Authenticatable
         $left = Str::substr($this->getAttribute('mobile'), 0, 4);
         $right = Str::substr($this->getAttribute('mobile'), 8);
         return $left.'****'.$right;
+    }
+
+    public function parent(){
+        return $this->belongsTo(User::class, 'parent_id', 'id');
+    }
+
+    public function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }

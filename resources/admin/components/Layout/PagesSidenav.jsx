@@ -1,18 +1,18 @@
 import * as React from 'react'
 import {Sidenav, Dropdown, Nav, Navbar, Sidebar} from "rsuite";
-import {useHistory, useLocation} from 'react-router-dom'
-import api from "../../utils/api";
+import api from "../../../utils/api";
 import Slack from "@rsuite/icons/legacy/Slack";
 import AngleLeft from "@rsuite/icons/legacy/AngleLeft";
 import AngleRight from "@rsuite/icons/legacy/AngleRight";
 import Bars from "@rsuite/icons/legacy/Bars";
+import {ActiveUrlContext, NavItemsContext} from "./MenuContext";
 
 export default function PagesSidenav(props){
     const [menus, setMenus] = React.useState([]);
     const [siteName, setSiteName] = React.useState('');
-    const [openKeys, setOpenKeys] = React.useState([]);
-    const location = useLocation();
-    const history = useHistory();
+    const [openKeys, setOpenKeys] = React.useState(['主页']);
+    const [navItems, setNavItems] = React.useContext(NavItemsContext);
+    const [activeUrl, setActiveUrl] = React.useContext(ActiveUrlContext);
 
     const {expanded, setExpanded} = props;
 
@@ -22,7 +22,7 @@ export default function PagesSidenav(props){
 
     React.useEffect(() => {
         updateAction();
-    }, [location.pathname, menus]);
+    }, [navItems, activeUrl]);
 
     async function init(){
         let res = await api.get('/index/menus');
@@ -34,7 +34,7 @@ export default function PagesSidenav(props){
     function updateAction(){
         for(let i in menus){
             for(let j in menus[i].children){
-                if(location.pathname === menus[i].children[j].url){
+                if(activeUrl === menus[i].children[j].url){
                     setOpenKeys([menus[i].name]);
                     return;
                 }
@@ -65,12 +65,22 @@ export default function PagesSidenav(props){
             >
                 <Sidenav.Body>
                     <Nav
-                        activeKey={location.pathname}
+                        activeKey={activeUrl}
                         onSelect={(key, e)=> {
                             // 还原分页配置
                             $PAGE = 1;
                             $ROWS = $ROWS_DEFAULT;
-                            history.push(key);
+                            let name = e.target.innerText;
+                            setActiveUrl(key);
+                            if(!navItems.find(item => item.url === key)){
+                                const menuTables2 = [...navItems];
+                                menuTables2.push({url: key, name});
+                                setNavItems(menuTables2);
+                            }else{
+                                // 已存在则点击刷新
+                                document.querySelector(`iframe[src="${window.location.pathname}#${key}"]`).contentWindow.location.reload();
+                            }
+                            // history.push(key);
                         }}
                     >
                         {menus.map((item) => (

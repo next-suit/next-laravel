@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef, useCallback} from 'react'
-import api from "../../utils/api"
+import api from "../../../utils/api"
 import {useHistory} from 'react-router-dom'
 import {
     Button,
@@ -8,7 +8,7 @@ import {
     Modal,
     Schema
 } from "rsuite"
-import {logger, toastSuccess} from "../../utils/functions"
+import {logger, toastSuccess} from "../../../utils/functions"
 
 const ChangePassword = (props) => {
     const [formValues, setFormValues] = useState({

@@ -90,7 +90,7 @@ export default function Edit(props){
                     <Form.ControlLabel>配置值</Form.ControlLabel>
                     {formValues.type === 'onoff' ?
                         <Form.Control accepter={RadioGroup} name={'value'} inline>
-                            {['开启', '关闭'].map((status, val) =>
+                            {['关闭', '开启'].map((status, val) =>
                                 <Radio key={status} value={val+''}>{status}</Radio>
                             )}
                         </Form.Control>

@@ -23,5 +23,5 @@ if (mix.inProduction()) {
 } else {
     mix.sourceMaps()
 }
-mix.extract();
+mix.extract(['react', 'react-dom', 'react-router-dom', 'rsuite', 'axios', 'dayjs']);
 mix.disableNotifications();

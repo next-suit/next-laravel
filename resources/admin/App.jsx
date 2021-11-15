@@ -3,6 +3,7 @@ import zhCN from 'rsuite/locales/zh_CN';
 import {HashRouter, Route, Switch} from "react-router-dom";
 import Login from "./pages/Login";
 import Layout from "./pages/Layout";
+import Pages from "./pages/Pages";
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
         <HashRouter>
             <Switch>
                 <Route exact={true} strict={true} path={'/login'}><Login /></Route>
-                <Route path={'/'}><Layout /></Route>
+                {window.self === window.top && <Route path={'/'}><Layout /></Route>}
+                <Pages />
             </Switch>
         </HashRouter>
       </CustomProvider>

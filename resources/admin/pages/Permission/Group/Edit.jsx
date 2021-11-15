@@ -44,7 +44,7 @@ export default function Edit(props){
                       menus: Schema.Types.ArrayType(),
                       status: Schema.Types.NumberType().isRequired('必填'),
                   })}
-                  onChange={formValues => setFormValues(formValues)}
+                  onChange={setFormValues}
                   formValue={formValues}      // 初始值设置
                   onSubmit={async (e) => {
                       // e.preventDefault()
@@ -67,23 +67,22 @@ export default function Edit(props){
                 </Form.Group>
                 <Form.Group>
                     <Form.ControlLabel>权限菜单</Form.ControlLabel>
+                    <Form.Control accepter={CheckboxGroup} name={'menus'}>
                     <div className={'border-l-4'}>
                         {menus.map(parent =>
                             parent.children.length > 0 ? <div key={parent.name} className={'pl-2'}>
                                 <h6>{parent.name}</h6>
                                 <div className={'pl-4'}>
-                                    <Form.Control accepter={CheckboxGroup} name={'menus'} inline>
                                         {parent.children.map(menu =>
                                             <Checkbox key={menu.url} value={menu.url}>{menu.name}</Checkbox>
                                         )}
-                                    </Form.Control>
                                 </div>
-                            </div>: <div>
+                            </div>: <div key={parent.name}>
                                 <Checkbox key={parent.url} value={parent.url}>{parent.name}</Checkbox>
                             </div>
                         )}
-
                     </div>
+                    </Form.Control>
                 </Form.Group>
                 <Form.Group controlId={'status'}>
                     <Form.ControlLabel>状态</Form.ControlLabel>

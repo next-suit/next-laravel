@@ -2,11 +2,15 @@
 @import "~tailwindcss/dist/utilities.min.css";
 @import "~tailwindcss/dist/components.min.css";
 
-@base-color: #9178C5;
+//@base-color: #EF7A64;
+@base-color: #9178c5;
 @primary-color: @base-color;
 @border-radius-base: 0px;     // 切换直角/圆角
 @button-ripple: false;
 @form-control-width: 200px;
+a, a:hover {
+    cursor: pointer;
+}
 .text-primary {
     color: @base-color;
 }
@@ -14,7 +18,7 @@
     border-left-color: @base-color;
 }
 .login-bg {
-    background: url("../images/floating-cogs.svg") repeat @base-color;
+    background: url("../images/floating-cogs.svg") repeat #56C1EA;
 }
 .login-dialog {
     width: 60rem;

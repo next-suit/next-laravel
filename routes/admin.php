@@ -11,20 +11,25 @@ Route::name('admin.')->group(function(){
     Route::post('/logout', [LoginController::class, 'logout']);
     Route::any('/index/dashboard22', [IndexController::class, 'dashboard']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function() {
         Route::post('/password', [LoginController::class, 'password']);
 
-        Route::prefix('/index')->name('主页.')->group(function () {
+        Route::prefix('/index')->name('主页.')->group(function(){
             Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('数据报表')->middleware('can:admin');
             Route::get('/info', [IndexController::class, 'info']);
             Route::get('/menus', [IndexController::class, 'menus']);
             Route::get('/clear', [IndexController::class, 'clear']);
         });
 
+        Route::prefix('/user')->name('用户管理.')->group(function(){
+            Route::get('/', [UserController::class, 'index'])->name('用户列表')->middleware('can:admin');
+            Route::get('/{id}', [UserController::class, 'show']);
+        });
 
 
 
-        Route::prefix('/system')->name('系统管理.')->group(function() {
+
+        Route::prefix('/system')->name('系统管理.')->group(function(){
             Route::get('/config', [ConfigController::class, 'index'])->name('配置列表')->middleware('can:admin');
             Route::get('/config/{key}', [ConfigController::class, 'show']);
             Route::post('/config', [ConfigController::class, 'store']);

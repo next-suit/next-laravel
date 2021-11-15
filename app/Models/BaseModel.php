@@ -4,6 +4,7 @@
 namespace App\Models;
 
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
@@ -17,5 +18,10 @@ class BaseModel extends Model
         if($rows > 0) {
             $this->perPage = $rows;
         }
+    }
+
+    public function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }

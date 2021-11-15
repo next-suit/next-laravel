@@ -2,7 +2,7 @@ import React from "react";
 import {Panel, Table} from "rsuite";
 import TablePagination from "./TablePagination";
 
-const TableLayout = ({loading, data, children, onChange, ...props}) => {
+const TableLayout = ({loading, data, onChange, children, ...props}) => {
 
     return <Panel bodyFill={true} bordered={false}>
         <Table

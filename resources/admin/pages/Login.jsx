@@ -2,11 +2,11 @@ import React from 'react'
 import {Button, ButtonGroup, ButtonToolbar, Form, Input, Panel} from "rsuite";
 import {useHistory} from 'react-router-dom'
 import api from "../../utils/api";
+import {PATHNAME} from "../../utils/const";
 
 export default props => {
     const [formValue, setFormValue] = React.useState({name: '', password: '', code: ''});
     const [loading, setLoading] = React.useState(false);
-    const [pathname, setPathname] = React.useState(window.location.pathname.replace(/\//g, '_'));
     const focusRef = React.useRef(null);
     const history = useHistory();
 
@@ -16,7 +16,7 @@ export default props => {
     }, []);
 
     async function init(){
-        localStorage.removeItem(`token${pathname}`);
+        localStorage.removeItem(`token_${PATHNAME}`);
         await api.post('/logout');
     }
 
@@ -24,12 +24,8 @@ export default props => {
         setLoading(true);
         try {
             let res = await api.post('/login', formValue);
-            localStorage.setItem(`token${pathname}`, res.token);
-            let jump = localStorage.getItem(`auth_jump${pathname}`) || '/';
-            if(jump === '/login' || jump === '/admin'){
-                jump = '/';
-            }
-            history.push(jump);
+            localStorage.setItem(`token_${PATHNAME}`, res.token);
+            history.push('/');
         }catch (e) {
 
         }
@@ -38,7 +34,7 @@ export default props => {
 
     return (
         <div className={'login-bg h-screen w-screen relative'}>
-            <div className={'login-dialog absolute bg-white shadow-xl'}>
+            <div className={'login-dialog absolute shadow-xl'}>
                 <div className={'flex h-full relative'}>
                     <div className={'w-3/5 h-full'} />
                     <div className={'w-2/5 h-full'}>

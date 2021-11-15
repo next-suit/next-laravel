@@ -7,11 +7,9 @@ export default function Config(props){
     const match = useRouteMatch();
 
     return (
-        <>
-            <Switch>
-                <Route exact path={`${match.path}`}><Index /></Route>
-                <Route path={`${match.path}/:id/edit`}><Edit /></Route>
-            </Switch>
-        </>
+        <Switch>
+            <Route exact path={`${match.path}`}><Index /></Route>
+            <Route path={`${match.path}/:id/edit`}><Edit /></Route>
+        </Switch>
     );
 }

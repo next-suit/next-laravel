@@ -1,7 +1,6 @@
 import {date, datetime, toastError, toastInfo, toastWarning} from "./functions";
 import axios from "axios";
-
-let pathname = window.location.pathname.replace(/\//g, '_');
+import {PATHNAME} from "./const";
 
 const api = axios.create({
     baseURL: location.pathname,
@@ -9,7 +8,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use(request => {
-    let token = localStorage.getItem(`token${pathname}`);
+    let token = localStorage.getItem(`token_${PATHNAME}`);
     request.headers['Authorization'] = `Bearer ${token}`;
 
     let params = {
@@ -46,7 +45,6 @@ api.interceptors.response.use(response => {
     if(errors.response.status === 401){
         // 不是未登录错误，就提示出来
         errors.response.data.message === 'Unauthenticated.' || toastInfo(errors.response.data.message);
-        localStorage.setItem(`auth_jump${pathname}`, window.location.hash.substr(1));
         window.location.href = '#/login';
         return Promise.reject(errors.response.data.message);
     }
